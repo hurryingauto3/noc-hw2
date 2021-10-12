@@ -1,0 +1,60 @@
+\documentclass[a4page]{exam}
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\usepackage{amsmath, amsfonts}
+
+\newcommand{\Str}[1]{\mathtt{#1}}
+
+\title{Homework 2}
+\author{CS 212 Nature of Computation\\Habib University\\Fall 2021}
+\date{Due: 2359h on Sunday, 24 October}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent\rule{\textwidth}{1pt}
+
+\begin{questions}
+\question[10] Prove that $\{wtw | \hspace{1mm} w,t \in \{0,1\}^+\}$ is not regular.
+\question Given $L = \{0^i1^j2^k | \hspace{1mm} i,j,k \geq 0 \text{ and } i \neq 1 \text{ or } j = k\}$, show that 
+  \begin{parts}
+  \part[10] $L$ is not regular.
+  \part[10] The pumping lemma for regular languages applies to $L$. That is, show that there is some $p$ such that if $s\in L$ and $|s| > p$, then $s$ can be written as $xyz$ where $|y| > 0, |xy| \le p$, and for each $i \ge 0, xy^iz \in L$.\\ 
+    \textit{Note: This shows that the converse of the pumping lemma is false.}
+  \end{parts}
+
+\question Consider the grammar $G = (V,\Sigma, R, S)$ where $V = \{S,A\}$; $\Sigma = \{\Str{a},\Str{b}\}$; and $R$ contains the following rules:
+  \begin{eqnarray*}
+    S &\rightarrow& \Str{a}\ A\ \Str{a} \mid \Str{b}\ A\ \Str{b} \mid \epsilon\\
+    A &\rightarrow& SS.
+  \end{eqnarray*}
+  \begin{parts}
+  \part[5] Which strings of $L(G)$ can be produced by derivations of four or fewer steps?
+  \part[5] Give a derivation of $\Str{baabbb}$ in $G$.
+  \part[5] Construct the parse tree of the derivation from the previous part.
+  \part[5] Describe $L(G)$ in English?
+  \end{parts}
+
+\question[10] Convert the following context-free grammar to Chomsky Normal Form:
+  \begin{eqnarray*}
+    S &\rightarrow& A\ S\ B\\
+    A &\rightarrow& \Str{a}\ A\ S\ \mid\  \Str{a}\ \mid\ \epsilon \\
+    B &\rightarrow& S\ \Str{b}\ S\ \mid\ A\ \mid\ \Str{b}\ \Str{b}.
+  \end{eqnarray*}
+
+\question Give an unambiguous context-free grammar and then construct a pushdown automaton for each of the following languages.
+  \begin{parts}
+  \part[20] $L = \{a^n b^m c^k \mid n, m, k > 0, k = n + m \}$ over $\Sigma = \{a, b, c\}$.
+  \part[20] $A = \{w \mid \text{the number of $a$'s is at least the number of $b$'s in $w$} \}$ over $\Sigma = \{a, b\}$.
+  \end{parts}
+  
+\end{questions}
+
+\noindent\rule{\textwidth}{1pt}\\\vspace{1pt}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
